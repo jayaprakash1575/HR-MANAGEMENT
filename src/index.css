@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color-scheme: light;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* iOS Safe Area Support */
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Smooth Scrolling & Hide scrollbars */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* iOS Bottom Sheet slide-up animation */
+@keyframes slideUpIOS {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-ios-sheet {
+  animation: slideUpIOS 0.32s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+/* iOS Fade In animation */
+@keyframes fadeInIOS {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-ios-fade {
+  animation: fadeInIOS 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
